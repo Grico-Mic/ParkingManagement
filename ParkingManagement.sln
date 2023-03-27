@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.33130.400
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingManagement", "ParkingManagement\ParkingManagement.csproj", "{A28CCE14-72F9-4AC1-8EF5-13C5B70D5257}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingManagement.Models", "ParkingManagement.Models\ParkingManagement.Models.csproj", "{26990832-05AF-4B26-9224-EC5BE7215BED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A28CCE14-72F9-4AC1-8EF5-13C5B70D5257}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A28CCE14-72F9-4AC1-8EF5-13C5B70D5257}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A28CCE14-72F9-4AC1-8EF5-13C5B70D5257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26990832-05AF-4B26-9224-EC5BE7215BED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26990832-05AF-4B26-9224-EC5BE7215BED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26990832-05AF-4B26-9224-EC5BE7215BED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26990832-05AF-4B26-9224-EC5BE7215BED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
