@@ -47,12 +47,14 @@ namespace ParkingManagement
                 }
                 catch (ParkingManagementException ex)
                 {
-                    var errorMessage = $"{DateTime.Now}.{ex.StackTrace} {ex.Message}";
-                    File.AppendAllLines($"Log.txt",new List<string>(){ errorMessage });
+                    var infoMessage = $"{DateTime.Now}.{ex.StackTrace} {ex.Message}";
+                    File.AppendAllLines($"InfoLog.txt",new List<string>(){ infoMessage });
                     Console.WriteLine(ex.Message);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    var errorMessage = $"{DateTime.Now}.{ex.StackTrace} {ex.Message}";
+                    File.AppendAllLines($"ErrorLog.txt", new List<string>() { errorMessage });
                     Console.WriteLine("Ooops....Something went wrong.Please try again later.");
                 }
                 Console.WriteLine("Would you want to continue?Enter no for exit.");
