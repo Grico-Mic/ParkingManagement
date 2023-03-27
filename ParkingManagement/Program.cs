@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParkingManagement.Servises;
+using System;
 
 namespace ParkingManagement
 {
@@ -10,6 +11,7 @@ namespace ParkingManagement
             Console.WriteLine("     WELCOME TO OUR PARKING");
             Console.WriteLine("--------------------------------------");
 
+            var servise = new ParkingManagementServise();
 
             do
             {
@@ -28,7 +30,7 @@ namespace ParkingManagement
                         Console.WriteLine("Implement Leaving from parking");
                         break;
                     case "3":
-                        Console.WriteLine("Implement Buying prepaid ticket");
+                        servise.BuyPrepaidTicket();
                         break;
                     default:
                         Console.WriteLine("Invalid input");

@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ParkingManagement.Servises\ParkingManagement.Servises.csproj" />
+  </ItemGroup>
+
 </Project>
