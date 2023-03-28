@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using ParkingManagement.Common;
 using ParkingManagement.Models;
+using ParkingManagement.Repositories;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,10 +15,12 @@ namespace ParkingManagement.Servises
             var config =  File.ReadAllText("ConfigFile.txt");
             var parsedConfig = JsonConvert.DeserializeObject<Config>(config);
             PricePerMonth = parsedConfig.PricePerMonth;
-            PrepaidTickets = new List<PrepaidTicket>();
+            prepaidTicketRepository = new PrepaidTicketRepository();
         }
 
-        private List<PrepaidTicket> PrepaidTickets { get; set; }
+        private PrepaidTicketRepository prepaidTicketRepository { get; set; }
+
+       
         private decimal PricePerMonth { get; set; }
         public void BuyPrepaidTicket()
         {
@@ -36,7 +39,8 @@ namespace ParkingManagement.Servises
             prepaidticket.NumberOfMonthsValid = numberOfMonths;
             prepaidticket.PricePerMonths = PricePerMonth;
 
-            PrepaidTickets.Add(prepaidticket);
+            prepaidTicketRepository.Create(prepaidticket);
+           
 
             Console.WriteLine($"The price of the ticket is {prepaidticket.CalculatePrice()}");
         }
