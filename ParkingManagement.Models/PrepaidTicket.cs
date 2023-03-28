@@ -8,12 +8,17 @@ namespace ParkingManagement.Models
         public decimal PricePerMonths { get; set; }
 
         public DateTime ValidFrom { get; set; }
-        public int MonthsValid { get; set; }
+        public int NumberOfMonthsValid { get; set; }
 
 
         public bool IsValid(DateTime currentDate)
         {
-            return currentDate < ValidFrom.AddMonths(MonthsValid);
+            return currentDate < ValidFrom.AddMonths(NumberOfMonthsValid);
+        }
+
+        public decimal CalculatePrice(int userInput )
+        {
+            return PricePerMonths * NumberOfMonthsValid;
         }
     }
 }
