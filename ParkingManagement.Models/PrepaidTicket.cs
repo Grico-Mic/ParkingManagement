@@ -4,6 +4,7 @@ namespace ParkingManagement.Models
 {
     public class PrepaidTicket
     {
+        public int Id { get; set; }
         public string RegistrationNumber { get; set; }
         public decimal PricePerMonths { get; set; }
 
