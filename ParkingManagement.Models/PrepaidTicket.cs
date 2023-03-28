@@ -4,19 +4,19 @@ namespace ParkingManagement.Models
 {
     public class PrepaidTicket
     {
-        public int RegistrationNumber { get; set; }
+        public string RegistrationNumber { get; set; }
         public decimal PricePerMonths { get; set; }
 
-        public DateTime ValidFrom { get; set; }
+        public DateTime DateCreated { get; set; }
         public int NumberOfMonthsValid { get; set; }
 
 
         public bool IsValid(DateTime currentDate)
         {
-            return currentDate < ValidFrom.AddMonths(NumberOfMonthsValid);
+            return currentDate < DateCreated.AddMonths(NumberOfMonthsValid);
         }
 
-        public decimal CalculatePrice(int userInput )
+        public decimal CalculatePrice()
         {
             return PricePerMonths * NumberOfMonthsValid;
         }
