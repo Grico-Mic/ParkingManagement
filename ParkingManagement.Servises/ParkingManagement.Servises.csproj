@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ParkingManagement.Common\ParkingManagement.Common.csproj" />
-    <ProjectReference Include="..\ParkingManagement.Models\ParkingManagement.Models.csproj" />
     <ProjectReference Include="..\ParkingManagement.Repositories\ParkingManagement.Repositories.csproj" />
   </ItemGroup>
 

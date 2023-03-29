@@ -15,10 +15,10 @@ namespace ParkingManagement.Servises
             var config =  File.ReadAllText("ConfigFile.txt");
             var parsedConfig = JsonConvert.DeserializeObject<Config>(config);
             PricePerMonth = parsedConfig.PricePerMonth;
-            prepaidTicketRepository = new PrepaidTicketRepository();
+            PrepaidTicketRepository = new PrepaidTicketRepository();
         }
 
-        private PrepaidTicketRepository prepaidTicketRepository { get; set; }
+        private PrepaidTicketRepository PrepaidTicketRepository { get; set; }
 
        
         private decimal PricePerMonth { get; set; }
@@ -27,6 +27,12 @@ namespace ParkingManagement.Servises
             Console.WriteLine("Please enter registration number");
             var userInputRegistrationNumber = Console.ReadLine();
             ValidateRegistrationNumber(userInputRegistrationNumber);
+
+            var ticket = PrepaidTicketRepository.GetValidByRegNumber(userInputRegistrationNumber);
+            if (ticket != null)
+            {
+                throw new ParkingManagementException($"Valid ticket alredy exist with id{ticket.Id}");
+            }
 
             Console.WriteLine("How manu months would you like?Max 12 months");
             var userInputMonthsWant = Console.ReadLine();
@@ -44,6 +50,7 @@ namespace ParkingManagement.Servises
 
             Console.WriteLine($"The price of the ticket is {prepaidticket.CalculatePrice()}");
         }
+
 
         private int ValidateInputMonths(string monthsInput)
         {

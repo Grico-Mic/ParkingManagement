@@ -18,6 +18,10 @@ namespace ParkingManagement.Repositories
             prepaidticket.Id = GenerateId();
             Data.Add(prepaidticket);
         }
+        public PrepaidTicket GetValidByRegNumber(string userInputRegistrationNumber)
+        {
+           return Data.FirstOrDefault(x => x.RegistrationNumber == userInputRegistrationNumber && x.IsValid(DateTime.Now));
+        }
 
         private int GenerateId()
         {
@@ -28,6 +32,8 @@ namespace ParkingManagement.Repositories
             }
             return newId + 1;
         }
+
+       
     }
 
 
